@@ -15,12 +15,27 @@ produces
 Hello from docker
 ```
 
+#### `docker run --entrypoint`
+
+```sh
+docker build -t entrypoint:latest .
+docker run --entrypoint bash --rm -it entrypoint:latest
+```
+
+produces an interactive shell:
+
+```
+root@4668b7805cf8:/app#
+```
+
+This happens regardless of whether `ENTRYPOINT` is specified in shell form or exec form.
+
 #### `docker exec`
 
 ```sh
 docker run --rm -it entrypoint:latest
 # in another shell
-docker ps -a
+docker ps
 docker exec -it <container ID> bash
 ```
 
